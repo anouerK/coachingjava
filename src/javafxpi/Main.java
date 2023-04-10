@@ -43,7 +43,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();*/
-         Parent root = FXMLLoader.load(getClass().getResource("/GUI/MainProgramme.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("/GUI/MainPage.fxml"));
             //Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
    primaryStage.setScene(scene);

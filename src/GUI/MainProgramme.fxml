@@ -14,17 +14,12 @@
    <children>
       <Button layoutX="94.0" layoutY="485.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #66ccff;" text="Add" />
       <Button fx:id="remove" layoutX="188.0" layoutY="485.0" mnemonicParsing="false" onAction="#onremove" style="-fx-background-color: #f52020;" text="Delete" />
-      <Label layoutX="810.0" layoutY="83.0" text="Search" textFill="#4059a9">
-         <font>
-            <Font name="System Bold Italic" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="423.0" layoutY="37.0" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="152.0" text="Programme" textFill="#cd1111" textOverrun="WORD_ELLIPSIS">
+      <Label layoutX="399.0" layoutY="14.0" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="152.0" text="Programme" textFill="#cd1111" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <TableView fx:id="tabview" layoutX="286.0" layoutY="157.0" prefHeight="363.0" prefWidth="639.0">
+      <TableView fx:id="tabview" layoutX="286.0" layoutY="100.0" prefHeight="420.0" prefWidth="639.0">
         <columns>
             <TableColumn fx:id="idT" prefWidth="49.0" text="id" />
           <TableColumn fx:id="nomT" onEditCommit="#onEditNom" prefWidth="140.0" text="Nom" />
@@ -34,14 +29,14 @@
             <TableColumn fx:id="MediaT" onEditCommit="#onEditMedia" prefWidth="207.0" text="Media" />
         </columns>
       </TableView>
-      <TextField fx:id="nom" layoutX="102.0" layoutY="157.0" />
-      <TextField fx:id="duree" layoutX="102.0" layoutY="263.0" />
+      <TextField fx:id="nom" layoutX="122.0" layoutY="157.0" />
+      <TextField fx:id="duree" layoutX="121.0" layoutY="279.0" />
       <Button layoutX="140.0" layoutY="448.0" mnemonicParsing="false" onAction="#upload" style="-fx-background-color: #3d9a31;" text="Upload" />
-      <ComboBox fx:id="type" layoutX="102.0" layoutY="209.0" prefWidth="150.0" />
-      <ImageView fx:id="imgv" fitHeight="114.0" fitWidth="194.0" layoutX="71.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="33.0" layoutY="161.0" text="Nom" />
-      <Label layoutX="31.0" layoutY="213.0" prefHeight="17.0" prefWidth="41.0" text="Type" />
-      <Label layoutX="37.0" layoutY="267.0" prefHeight="17.0" prefWidth="41.0" text="Duree" />
+      <ComboBox fx:id="type" layoutX="122.0" layoutY="222.0" prefWidth="150.0" />
+      <ImageView fx:id="imgv" fitHeight="114.0" fitWidth="194.0" layoutX="52.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="58.0" layoutY="161.0" text="Nom" />
+      <Label layoutX="52.0" layoutY="226.0" prefHeight="17.0" prefWidth="41.0" text="Type" />
+      <Label layoutX="51.0" layoutY="283.0" prefHeight="17.0" prefWidth="41.0" text="Duree" />
       <Label fx:id="imgurl" layoutX="8.0" layoutY="421.0" prefHeight="17.0" prefWidth="276.0" />
    </children>
 </AnchorPane>
