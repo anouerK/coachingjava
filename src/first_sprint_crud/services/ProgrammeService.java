@@ -102,9 +102,10 @@ public class ProgrammeService implements IService<Programme> {
             String nom = rs.getString("nom");
             String type = rs.getString("type");
             String media = rs.getString("media");
+            media = MyDB.url_upload + media;
             int dure = rs.getInt("dure");
             int likes = rs.getInt("likes");
-          
+          System.out.println(media);
 
             Programme programme = new Programme(id,nom,type,media,dure,likes);
             programmes.add(programme);
