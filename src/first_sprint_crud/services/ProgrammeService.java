@@ -44,6 +44,9 @@ public class ProgrammeService implements IService<Programme> {
 
     @Override
     public void modifier(Programme p) {
+        if (p.getMedia().contains(MyDB.url_upload)) {
+            p.setMedia( p.getMedia().replace(MyDB.url_upload, ""));
+        }
         try {
         // Create the SQL query string with placeholders for the parameters
         String sql = "UPDATE programme SET nom = ?, type = ?, media = ? , dure = ?, likes = ?  WHERE id = ?";
@@ -105,7 +108,7 @@ public class ProgrammeService implements IService<Programme> {
             media = MyDB.url_upload + media;
             int dure = rs.getInt("dure");
             int likes = rs.getInt("likes");
-          System.out.println(media);
+          
 
             Programme programme = new Programme(id,nom,type,media,dure,likes);
             programmes.add(programme);
