@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ksaay/Documents/NetBeansProjects/JavafxPi/src/first_sprint_crud/entities/Programme.java</file>
-            <file>file:/C:/Users/ksaay/Documents/NetBeansProjects/JavafxPi/src/GUI/MainCoachController.java</file>
-            <file>file:/C:/Users/ksaay/Documents/NetBeansProjects/JavafxPi/src/GUI/MainProgramme.fxml</file>
-            <file>file:/C:/Users/ksaay/Documents/NetBeansProjects/JavafxPi/src/GUI/MainProgrammeController.java</file>
-            <file>file:/C:/Users/ksaay/Documents/NetBeansProjects/JavafxPi/src/first_sprint_crud/util/MyDB.java</file>
+            <file>file:/C:/Java/coachingjava/src/GUI/MainCoachController.java</file>
+            <file>file:/C:/Java/coachingjava/src/GUI/MainLivreurController.java</file>
+            <file>file:/C:/Java/coachingjava/src/GUI/MainProduit.fxml</file>
+            <file>file:/C:/Java/coachingjava/src/GUI/MainPageController.java</file>
+            <file>file:/C:/Java/coachingjava/src/GUI/MainProduitController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -8,6 +8,8 @@
    <children>
       <Pane fx:id="view" layoutX="84.0" layoutY="15.0" prefHeight="550.0" prefWidth="950.0" style="-fx-background-color: #d1e0e0;" />
       <Button fx:id="coach" layoutY="141.0" mnemonicParsing="false" onAction="#coachview" prefHeight="25.0" prefWidth="84.0" text="Coach" />
-      <Button fx:id="prog" layoutY="299.0" mnemonicParsing="false" onAction="#progview" prefHeight="25.0" prefWidth="84.0" text="Programme" />
+      <Button fx:id="prog" layoutY="349.0" mnemonicParsing="false" onAction="#progview" prefHeight="25.0" prefWidth="84.0" text="Programme" />
+      <Button fx:id="produit" layoutY="217.0" mnemonicParsing="false" onAction="#produitview" prefHeight="25.0" prefWidth="84.0" text="Produit" />
+      <Button fx:id="livreur" layoutY="282.0" mnemonicParsing="false" onAction="#livreurview" prefHeight="25.0" prefWidth="84.0" text="Livreur" />
    </children>
 </AnchorPane>
