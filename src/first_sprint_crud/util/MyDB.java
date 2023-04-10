@@ -18,6 +18,7 @@ public class MyDB {
 
     private final String url = "jdbc:mysql://localhost:3306/coching";
     public  static String url_upload = "file:///C:/coachingProjet/public/adminAssets/img/";
+    public static String url_target = "C:/coachingProjet/public/adminAssets/img/";
     private final String username = "root";
     private final String password = "";
     private Connection connection;
