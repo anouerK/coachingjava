@@ -28,6 +28,10 @@ public class MainPageController implements Initializable {
     private Button prog;
     @FXML
     private Pane view;
+    @FXML
+    private Button produit;
+    @FXML
+    private Button livreur;
 
     /**
      * Initializes the controller class.
@@ -79,6 +83,52 @@ private void progview(ActionEvent event) {
     catch(Exception e ){
 System.out.println("no file found");
     }
+    }
+
+    @FXML
+    private void produitview(ActionEvent event) {
+        
+             URL fileUrl = JavafxPi.class.getResource("/GUI/MainProduit.fxml");
+        try {
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException(" Fxml file not found ");
+            }
+            else
+            {
+                   FXMLLoader loader = new FXMLLoader(fileUrl);
+            Pane pane = loader.load();
+            view.getChildren().setAll(pane);
+            }
+        }
+        
+       
+    
+    catch(Exception e ){
+System.out.println("no file found");
+    }
+    }
+
+    @FXML
+    private void livreurview(ActionEvent event) {
+               URL fileUrl = JavafxPi.class.getResource("/GUI/MainLivreur.fxml");
+        try {
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException(" Fxml file not found ");
+            }
+            else
+            {
+                   FXMLLoader loader = new FXMLLoader(fileUrl);
+            Pane pane = loader.load();
+            view.getChildren().setAll(pane);
+            }
+        }
+        
+       
+    
+    catch(Exception e ){
+System.out.println("no file found");
+    }
+        
     }
     
 }
