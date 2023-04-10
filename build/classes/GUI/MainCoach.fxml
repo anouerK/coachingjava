@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="950.0" style="-fx-background-color: #d1e0e0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainCoachController">
+   <children>
+      <Button layoutX="97.0" layoutY="277.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #66ccff;" text="Add" />
+      <Button fx:id="remove" layoutX="54.0" layoutY="358.0" mnemonicParsing="false" onAction="#onremove" style="-fx-background-color: #f52020;" text="Delete" />
+      <Label layoutX="542.0" layoutY="31.0" text="Search" textFill="#4059a9">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="39.0" fitWidth="82.0" layoutX="503.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../3A29-mainjavafx/src/ressources/img/icons8-search-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="24.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../3A29-mainjavafx/src/ressources/img/icons8-trash-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="65.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../3A29-mainjavafx/src/ressources/img/icons8-plus-40.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="339.0" layoutY="17.0" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="100.0" text="Coach" textFill="#cd1111" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="23.0" layoutY="16.0" onMouseClicked="#returnto" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../3A29-mainjavafx/src/ressources/img/icons8-undo-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="nom" layoutX="125.0" layoutY="155.0" />
+      <TextField fx:id="prenom" layoutX="125.0" layoutY="220.0" />
+      <Label layoutX="51.0" layoutY="159.0" text="Nom" />
+      <Label layoutX="51.0" layoutY="224.0" text="Prenom" />
+      <TableView fx:id="tabview" layoutX="349.0" layoutY="106.0" prefHeight="316.0" prefWidth="515.0">
+         <columns>
+            <TableColumn fx:id="idT" prefWidth="197.0" text="id" />
+            <TableColumn fx:id="nomT" onEditCommit="#onEditNom" prefWidth="113.0" text="nom" />
+            <TableColumn fx:id="prenomT" onEditCommit="#onEditPrenom" prefWidth="201.0" text="prenom" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
