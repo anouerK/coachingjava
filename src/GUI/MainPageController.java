@@ -5,6 +5,7 @@
 package GUI;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,6 +15,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafxpi.JavafxPi;
+
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -32,6 +42,12 @@ public class MainPageController implements Initializable {
     private Button produit;
     @FXML
     private Button livreur;
+    @FXML
+    private Button rendezvous;
+    
+      private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     /**
      * Initializes the controller class.
@@ -129,6 +145,15 @@ System.out.println("no file found");
 System.out.println("no file found");
     }
         
+    }
+
+    @FXML
+    private void rendezvousview(ActionEvent event) throws IOException {
+   Parent root = FXMLLoader.load(getClass().getResource("MainRendezVous.fxml"));
+   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+   scene = new Scene(root);
+   stage.setScene(scene);
+   stage.show();
     }
     
 }

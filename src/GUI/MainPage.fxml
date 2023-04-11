@@ -11,5 +11,6 @@
       <Button fx:id="prog" layoutY="349.0" mnemonicParsing="false" onAction="#progview" prefHeight="25.0" prefWidth="84.0" text="Programme" />
       <Button fx:id="produit" layoutY="217.0" mnemonicParsing="false" onAction="#produitview" prefHeight="25.0" prefWidth="84.0" text="Produit" />
       <Button fx:id="livreur" layoutY="282.0" mnemonicParsing="false" onAction="#livreurview" prefHeight="25.0" prefWidth="84.0" text="Livreur" />
+      <Button fx:id="rendezvous" layoutY="71.0" mnemonicParsing="false" onAction="#rendezvousview" prefHeight="25.0" prefWidth="84.0" text="Rendez Vous" />
    </children>
 </AnchorPane>

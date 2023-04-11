@@ -102,7 +102,7 @@ public class RendezvousService implements IService<RendezVous> {
 
 
         try {
-   String req = "insert into RendezVous(coach_id,nom,prenom,contact)"
+   String req = "insert into rendez_vous(coach_id,nom,prenom,contact)"
    + "values( '" + c.getCoach().getId()+ "' ,   '" + c.getNom()+  "' ,  '" + c.getPrenom() + "' ,   '" + c.getContact()+ "')";
 
             Statement st = cnx.createStatement();
