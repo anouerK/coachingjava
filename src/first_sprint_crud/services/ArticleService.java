@@ -105,7 +105,7 @@ public class ArticleService implements IService<Article> {
             String sujet = rs.getString("sujet_art");
             String titre = rs.getString("titre");
             String image = rs.getString("image");
-          
+            image = MyDB.url_upload + image;
 
             Article article = new Article(id, sujet, titre,image);
             articles.add(article);

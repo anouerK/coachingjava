@@ -12,5 +12,7 @@
       <Button fx:id="produit" layoutY="217.0" mnemonicParsing="false" onAction="#produitview" prefHeight="25.0" prefWidth="84.0" text="Produit" />
       <Button fx:id="livreur" layoutY="282.0" mnemonicParsing="false" onAction="#livreurview" prefHeight="25.0" prefWidth="84.0" text="Livreur" />
       <Button fx:id="rendezvous" layoutY="71.0" mnemonicParsing="false" onAction="#rendezvousview" prefHeight="25.0" prefWidth="84.0" text="Rendez Vous" />
+      <Button fx:id="article" layoutX="-1.0" layoutY="399.0" mnemonicParsing="false" onAction="#articleview" prefHeight="25.0" prefWidth="84.0" text="Article" />
+      <Button fx:id="articlef" layoutX="-3.0" layoutY="467.0" mnemonicParsing="false" onAction="#articlevf" prefHeight="25.0" prefWidth="84.0" text="Article(F)" />
    </children>
 </AnchorPane>

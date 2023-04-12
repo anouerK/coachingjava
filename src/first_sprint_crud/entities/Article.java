@@ -14,6 +14,9 @@ public class Article {
     private String titre;
     private String image;
 
+    public Article(){
+        
+    }
     public Article(int id, String sujet_art, String titre, String image) {
         this.id = id;
         this.sujet_art = sujet_art;
@@ -57,6 +60,10 @@ public class Article {
     @Override
     public String toString() {
         return "Article{" + "id=" + id + ", sujet_art=" + sujet_art + ", titre=" + titre + ", image=" + image + '}';
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
      
     

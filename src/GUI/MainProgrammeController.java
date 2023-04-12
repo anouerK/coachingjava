@@ -203,6 +203,9 @@ public class MainProgrammeController implements Initializable {
 
     @FXML
     private void onremove(ActionEvent event) {
+        Programme p = tabview.getSelectionModel().getSelectedItem();
+       psm.supprimer(p.getId());
+      show();
     }
 
     public void show() {
