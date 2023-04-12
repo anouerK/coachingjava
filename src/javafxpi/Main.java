@@ -16,14 +16,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
 /**
  *
  * @author ksaay
  */
 public class Main extends Application {
-    
+ 
     @Override
     public void start(Stage primaryStage)throws IOException {
+        
         /*
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
@@ -49,6 +51,7 @@ public class Main extends Application {
    primaryStage.setScene(scene);
    primaryStage.setTitle("Main");
    primaryStage.show();
+     
     }
 
     /**
@@ -56,6 +59,7 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+      
     }
     
 }

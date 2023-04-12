@@ -13,18 +13,21 @@ public class Livraison {
     private String dateliv;
     private String localisation;
     private Livreur livreur;
+    private Produit prod;
 
-    public Livraison(int id, String dateliv, String localisation, Livreur livreur) {
+    public Livraison(int id, String dateliv, String localisation, Livreur livreur,Produit prod) {
         this.id = id;
         this.dateliv = dateliv;
         this.localisation = localisation;
         this.livreur = livreur;
+        this.prod = prod;
     }
 
-    public Livraison(String dateliv, String localisation, Livreur livreur) {
+    public Livraison(String dateliv, String localisation, Livreur livreur,Produit prod) {
         this.dateliv = dateliv;
         this.localisation = localisation;
         this.livreur = livreur;
+        this.prod = prod;
     }
 
     public int getId() {
@@ -59,9 +62,21 @@ public class Livraison {
         this.livreur = livreur;
     }
 
+    public Produit getProd() {
+        return prod;
+    }
+
+    public void setProd(Produit prod) {
+        this.prod = prod;
+    }
+
     @Override
     public String toString() {
-        return "Livraison{" + "dateliv=" + dateliv + ", localisation=" + localisation + ", livreur=" + livreur + '}';
+        return "Livraison{" + "id=" + id + ", dateliv=" + dateliv + ", localisation=" + localisation + ", livreur=" + livreur + ", prod=" + prod + '}';
     }
+    
+    
+
+ 
     
 }
