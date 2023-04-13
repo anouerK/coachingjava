@@ -52,6 +52,10 @@ public class MainPageController implements Initializable {
     private Button article;
     @FXML
     private Button articlef;
+    @FXML
+    private Button reclamation;
+    @FXML
+    private Button reclamationback;
 
     /**
      * Initializes the controller class.
@@ -159,6 +163,7 @@ System.out.println("no file found");
    stage.setScene(scene);
    stage.show();
     }
+    
 
     @FXML
     private void articleview(ActionEvent event) throws IOException {
@@ -189,6 +194,34 @@ System.out.println("no file found");
    scene = new Scene(root);
    stage.setScene(scene);
    stage.show();
+    }
+
+    @FXML
+    private void reclamationview(ActionEvent event)throws IOException {
+   Parent root = FXMLLoader.load(getClass().getResource("MainReclamation.fxml"));
+   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+   scene = new Scene(root);
+   stage.setScene(scene);
+   stage.show();
+    }
+
+    @FXML
+    private void reclamationbackview(ActionEvent event) {
+      URL fileUrl = JavafxPi.class.getResource("/GUI/MainRepose.fxml");
+        try {
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException(" Fxml file not found ");
+            }
+            else
+            {
+                   FXMLLoader loader = new FXMLLoader(fileUrl);
+            Pane pane = loader.load();
+            view.getChildren().setAll(pane);
+            }
+        }
+          catch(Exception e ){
+System.out.println("no file found");
+    }
     }
     
 }

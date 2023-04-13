@@ -143,7 +143,7 @@ public class MainProduitController implements Initializable {
         nomT.setCellValueFactory(new PropertyValueFactory<Produit,String>("nom"));
         descriptionT.setCellValueFactory(new PropertyValueFactory<Produit,String>("description"));
         prixT.setCellValueFactory(new PropertyValueFactory<Produit,Double>("prix"));
-        //MediaT.setCellValueFactory(new PropertyValueFactory<Produit, String>("image"));
+        MediaT.setCellValueFactory(new PropertyValueFactory<Produit, String>("image"));
          
          ObservableList<Produit> items = FXCollections.observableArrayList(psm.recuperer());
         tabview.setItems(items);
