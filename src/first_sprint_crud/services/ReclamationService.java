@@ -5,6 +5,7 @@
 package first_sprint_crud.services;
 
 
+import first_sprint_crud.entities.Livreur;
 import first_sprint_crud.entities.Reclamation;
 
 import first_sprint_crud.util.MyDB;
@@ -16,6 +17,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -53,7 +55,7 @@ public class ReclamationService implements IService<Reclamation> {
  Reclamation  reclamation = null;
     try {
         
-        String sql1 = "SELECT * FROM reclamation where id=" + " '"+ r.getId() + "'  ";
+         String sql1 = "SELECT * FROM reclamation where id=" + " '"+ r.getId() + "'  ";
          Statement stmt = cnx.createStatement();
 
        
@@ -114,6 +116,34 @@ try {
 
     @Override
     public List<Reclamation> recuperer() {
-return null;
+ List<Reclamation> reclamations = new ArrayList<>();
+    try {
+        
+    
+      
+          String sql1 = "SELECT * FROM reclamation";
+         Statement stmt = cnx.createStatement();
+
+       
+        ResultSet rs = stmt.executeQuery(sql1);
+
+   
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            Date date_rec = rs.getDate("date_rec");
+            String sujet = rs.getString("sujet");
+            String description = rs.getString("description");
+            
+             
+                  Reclamation rec = new Reclamation(id,sujet,description);
+            reclamations.add(rec);
+        }
+        } catch (SQLException ex) {
+        System.out.println("Erreur lors de la récupération des Reclamations : " + ex.getMessage());
     }
+
+    return reclamations;
+    }
+    
+      
 }

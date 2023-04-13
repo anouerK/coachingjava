@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane1" prefHeight="207.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainReclamationItemController">
+   <children>
+      <VBox fx:id="vbox" prefHeight="231.0" prefWidth="1020.0" stylesheets="@../../../turbooo_devs/src/valuesShop/shop.css">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="1010.0" spacing="55.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
+               <children>
+                  <Label fx:id="sujet" prefHeight="22.0" prefWidth="161.0" text="Sujet: aaa">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="desc" prefHeight="77.0" prefWidth="610.0" text="Description: bbb">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fx:id="delete" fitHeight="40.0" fitWidth="40.0" onMousePressed="#deleteaction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../turbooo_devs/src/AhmedImages/delete.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="1010.0" spacing="25.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
+               <children>
+                  <Label fx:id="reponse" prefHeight="22.0" prefWidth="207.0" text="Reponse: aaa">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </HBox>
+         </children>
+         <styleClass>
+            <String fx:value="prod-item" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </VBox>
+   </children>
+</AnchorPane>

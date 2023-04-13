@@ -83,5 +83,28 @@ public class ReponseService {
 
     return reponse;
 }
+         
+         
+         public void update(Reponse r) {
+        
+        try {
+        // Create the SQL query string with placeholders for the parameters
+        String sql = "UPDATE reponse SET reclamation_id = ?, reponse = ?  WHERE id = ?";
+
+        // Create a prepared statement with the SQL query string
+        PreparedStatement ps = cnx.prepareStatement(sql);
+
+        // Set the parameters for the prepared statement
+        ps.setInt(1, r.getRec().getId());
+        ps.setString(2, r.getReponse());
+        ps.setInt(3, r.getId());
+        
+          ps.executeUpdate();
+            System.out.println("Reponse Updated");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+    }
+         }
 
 }
