@@ -54,7 +54,7 @@ import javafx.util.converter.DoubleStringConverter;
 /**
  * FXML Controller class
  *
- * @author USER
+ * @author aziz
  */
 public class MainProduitController implements Initializable {
 

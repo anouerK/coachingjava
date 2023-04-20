@@ -3,13 +3,18 @@ package GUI;
 
 import first_sprint_crud.entities.Commentaire;
 import first_sprint_crud.services.CommentaireService;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,6 +25,7 @@ import javafx.scene.image.Image;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class ArticleDetailsController implements Initializable {
 
@@ -37,6 +43,10 @@ public class ArticleDetailsController implements Initializable {
     private TextField commetinput;
     @FXML
     private Button submit;
+    @FXML
+    private Button retour;
+    private Stage stage;
+    private Scene scene;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -106,5 +116,14 @@ public class ArticleDetailsController implements Initializable {
             listv.getItems().add(c);
             commetinput.setText("");
          }
+    }
+
+    @FXML
+    private void ret(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ArticleFront.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

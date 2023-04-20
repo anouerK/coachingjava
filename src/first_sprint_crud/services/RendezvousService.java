@@ -16,7 +16,7 @@ import first_sprint_crud.entities.RendezVous;
 
 /**
  *
- * @author ksaay
+ * @author ons
  */
 public class RendezvousService implements IService<RendezVous> {
      Connection cnx;

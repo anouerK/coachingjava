@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  *
- * @author USER
+ * @author arij
  */
 public class ReclamationService implements IService<Reclamation> {
     Connection cnx;

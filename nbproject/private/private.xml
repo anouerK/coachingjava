@@ -3,13 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/coachingjava/src/first_sprint_crud/services/LivreurService.java</file>
             <file>file:/C:/coachingjava/src/GUI/ArticleDetailsController.java</file>
             <file>file:/C:/coachingjava/src/first_sprint_crud/services/ArticleService.java</file>
-            <file>file:/C:/coachingjava/src/first_sprint_crud/entities/Article.java</file>
-            <file>file:/C:/coachingjava/src/first_sprint_crud/services/CommentaireService.java</file>
-            <file>file:/C:/coachingjava/src/first_sprint_crud/services/LivraisonService.java</file>
-            <file>file:/C:/coachingjava/src/first_sprint_crud/entities/Commentaire.java</file>
+            <file>file:/C:/coachingjava/src/GUI/MainProgrammeController.java</file>
+            <file>file:/C:/coachingjava/src/first_sprint_crud/util/MyDB.java</file>
+            <file>file:/C:/coachingjava/src/GUI/ArticleFrontController.java</file>
+            <file>file:/C:/coachingjava/src/javafxpi/JavafxPi.java</file>
+            <file>file:/C:/coachingjava/src/GUI/MainPageController.java</file>
+            <file>file:/C:/coachingjava/src/first_sprint_crud/services/ProduitService.java</file>
+            <file>file:/C:/coachingjava/src/GUI/MainReclamationController.java</file>
+            <file>file:/C:/coachingjava/src/GUI/MainArticleController.java</file>
+            <file>file:/C:/coachingjava/src/GUI/MainReposeController.java</file>
+            <file>file:/C:/coachingjava/src/first_sprint_crud/entities/Reponse.java</file>
+            <file>file:/C:/coachingjava/src/first_sprint_crud/services/ProgrammeService.java</file>
+            <file>file:/C:/coachingjava/src/GUI/MainRendezVousController.java</file>
         </group>
     </open-files>
 </project-private>

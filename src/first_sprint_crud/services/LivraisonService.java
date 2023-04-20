@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  *
- * @author ksaay
+ * @author aziz
  */
 public class LivraisonService implements IService<Livraison> {
      Connection cnx;

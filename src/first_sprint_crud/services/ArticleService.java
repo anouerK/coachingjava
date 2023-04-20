@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author USER
+ * @author ouss
  */
 public class ArticleService implements IService<Article> {
     
@@ -47,7 +47,9 @@ public class ArticleService implements IService<Article> {
     
      @Override
     public void modifier(Article a) {
-        
+         if (a.getImage().contains(MyDB.url_upload)) {
+            a.setImage(a.getImage().replace(MyDB.url_upload, ""));
+        }
         try {
         // Create the SQL query string with placeholders for the parameters
         String sql = "UPDATE article SET sujet_art = ?, titre = ?, image = ?  WHERE id = ?";

@@ -19,6 +19,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -33,47 +34,58 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author ksaay
+ * @author ouss
  */
 public class ArticleFrontController implements Initializable {
 
     @FXML
     private ListView<Article> listA;
     ArticleService psm = new ArticleService();
-public static Article selectedarticle_ ;//= new Article();
+    public static Article selectedarticle_;//= new Article();
+    @FXML
+    private Button retour;
+    private Stage stage;
+    private Scene scene;
+
     /**
      * Initializes the controller class.
      */
     @Override
-   public void initialize(URL url, ResourceBundle rb) {
-    listA.setCellFactory(param -> {
-        final HBox hbox = new HBox();
-        final ImageView imageview = new ImageView();
-        imageview.setFitHeight(250);
-        imageview.setFitWidth(400);
-        final Button viewBtn = new Button("View");
+    public void initialize(URL url, ResourceBundle rb) {
+        listA.setCellFactory(param -> {
+            final HBox hbox = new HBox();
+            final ImageView imageview = new ImageView();
+            imageview.setFitHeight(250);
+            imageview.setFitWidth(400);
+            final Button viewBtn = new Button("View");
 
-        ListCell<Article> cell = new ListCell<Article>() {
-            public void updateItem(Article item, boolean empty) {
-                super.updateItem(item, empty);
-                if (item != null) {
-                    Image image = new Image(item.getImage());
-                    imageview.setImage(image);
-                    hbox.getChildren().addAll(imageview, viewBtn);
-                    setGraphic(hbox);
-                } else {
-                    setGraphic(null);
+            ListCell<Article> cell = new ListCell<Article>() {
+                public void updateItem(Article item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item != null) {
+                        Image image = new Image(item.getImage());
+                        imageview.setImage(image);
+                        hbox.getChildren().addAll(imageview, viewBtn);
+                        setGraphic(hbox);
+                    } else {
+                        setGraphic(null);
+                    }
                 }
-            }
-        };
+            };
 
-       viewBtn.setOnAction(new EventHandler<ActionEvent>() {
-    @Override
-    public void handle(ActionEvent event) {
-        try {
-            Article selectedArticle = cell.getItem();
-            selectedarticle_=selectedArticle;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ArticleDetails.fxml"));
+            viewBtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    try {
+                        Article selectedArticle = cell.getItem();
+                        selectedarticle_ = selectedArticle;
+                        //FXMLLoader loader = new FXMLLoader(getClass().getResource("ArticleDetails.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getResource("ArticleDetails.fxml"));
+                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                        /*
             Parent root = loader.load();
             ArticleDetailsController controller = loader.getController();
             //controller.initData(selectedArticle);
@@ -81,21 +93,30 @@ public static Article selectedarticle_ ;//= new Article();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.show();
-            // int articleId = selectedArticle.getId();
-            // do something with the article ID
-        } catch (IOException ex) {
-            Logger.getLogger(ArticleFrontController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            stage.show();*/
+                        // int articleId = selectedArticle.getId();
+                        // do something with the article ID
+                    } catch (IOException ex) {
+                        Logger.getLogger(ArticleFrontController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            });
+
+            return cell;
+        });
+
+        ObservableList<Article> items = FXCollections.observableArrayList(psm.recuperer());
+        listA.setItems(items);
     }
-});
 
-        return cell;
-    });
+    @FXML
+    private void ret(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
-    ObservableList<Article> items = FXCollections.observableArrayList(psm.recuperer());
-    listA.setItems(items);
-}
+    }
 
-    
 }

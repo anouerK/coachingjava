@@ -50,7 +50,7 @@ import javafx.util.StringConverter;
 /**
  * FXML Controller class
  *
- * @author ksaay
+ * @author ons
  */
 public class MainProgrammeController implements Initializable {
 

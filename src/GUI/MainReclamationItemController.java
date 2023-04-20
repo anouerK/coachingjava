@@ -26,7 +26,7 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author USER
+ * @author arij
  */
 public class MainReclamationItemController implements Initializable {
 

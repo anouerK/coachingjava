@@ -34,12 +34,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author USER
+ * @author ons
  */
 public class MainRendezVousController implements Initializable {
 
@@ -61,11 +65,15 @@ public class MainRendezVousController implements Initializable {
     private ComboBox<String> coach;
     @FXML
     private TextField contact;
+    private Stage stage;
+    private Scene scene;
     
 RendezvousService psm = new RendezvousService();
 CoachService psc = new CoachService();
 
  ObservableMap<String, Coach> coachMap = FXCollections.observableHashMap();
+    @FXML
+    private Button ret;
     /**
      * Initializes the controller class.
      */
@@ -176,6 +184,15 @@ coach.setItems(FXCollections.observableArrayList(coachMap.keySet()));
 
     @FXML
     private void coachcomboaction(ActionEvent event) {
+    }
+
+    @FXML
+    private void ret(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+   scene = new Scene(root);
+   stage.setScene(scene);
+   stage.show();
     }
     
 }

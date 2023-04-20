@@ -22,6 +22,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,11 +35,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author USER
+ * @author arij
  */
 public class MainReclamationController implements Initializable {
 
@@ -57,6 +61,10 @@ public class MainReclamationController implements Initializable {
     
     ReclamationService psrec = new ReclamationService(); 
     ReponseService psrep = new ReponseService();
+    @FXML
+    private Button ret;
+    private Stage stage;
+    private Scene scene;
 
     /**
      * Initializes the controller class.
@@ -154,6 +162,15 @@ public class MainReclamationController implements Initializable {
             show();
             
         }
+    }
+
+    @FXML
+    private void ret(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+   scene = new Scene(root);
+   stage.setScene(scene);
+   stage.show();
     }
     
 }

@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author USER
+ * @author arij
  */
 public class ReponseService {
        Connection cnx;

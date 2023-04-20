@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  *
- * @author USER
+ * @author aziz
  */
 public class FavoriteProductsService {
     Connection cnx;

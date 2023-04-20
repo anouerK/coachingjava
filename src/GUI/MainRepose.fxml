@@ -18,7 +18,7 @@
                   <Font name="System Bold" size="27.0" />
                </font>
             </Label>
-            <Label layoutX="110.0" layoutY="217.0" text="Reponse:" />
+            <Label fx:id="resp" layoutX="110.0" layoutY="217.0" text="Reponse:" />
             <TableView fx:id="tabview" layoutX="393.0" layoutY="100.0" onMouseClicked="#reponseget" prefHeight="429.0" prefWidth="615.0">
                <columns>
                   <TableColumn fx:id="idT" prefWidth="51.0" text="id" />

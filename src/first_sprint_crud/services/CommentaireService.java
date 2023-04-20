@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author ksaay
+ * @author ouss
  */
 public class CommentaireService implements IService<Commentaire> {
     

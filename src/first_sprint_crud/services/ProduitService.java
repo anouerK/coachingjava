@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  *
- * @author USER
+ * @author aziz
  */
 public class ProduitService implements IService<Produit> {
     Connection cnx;
@@ -55,7 +55,9 @@ public class ProduitService implements IService<Produit> {
 
     @Override
     public void modifier(Produit p) {
-        
+        if (p.getImage().contains(MyDB.url_upload)) {
+            p.setImage(p.getImage().replace(MyDB.url_upload, ""));
+        }
         try {
         // Create the SQL query string with placeholders for the parameters
         String sql = "UPDATE produit SET nom_prod = ?, prix_prod = ?, description = ?, photo = ? WHERE id = ?";

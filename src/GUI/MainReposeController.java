@@ -25,6 +25,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -32,7 +33,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 /**
  * FXML Controller class
  *
- * @author USER
+ * @author arij
  */
 public class MainReposeController implements Initializable {
 
@@ -55,6 +56,8 @@ public class MainReposeController implements Initializable {
     private Button add;
     @FXML
     private Button update;
+    @FXML
+    private Label resp;
 
     /**
      * Initializes the controller class.
@@ -117,11 +120,15 @@ alert.showAndWait();
       Node node = (Node) event.getTarget();
     if (node instanceof TableCell) {
     TableCell cell = (TableCell) node;
-    String value = cell.getText();
-    System.out.println("Selected value: " + value);
-    val = Integer.parseInt(value);
-  Reponse rep  =  psrep.recupererReclamationAvecReponse(Integer.parseInt(value));
-    
+    int  value = cell.getIndex();
+    if (value > tabview.getItems().size()-1)
+            return;
+   // System.out.println(value);
+    //System.out.println("Selected value: " + value);
+    val = tabview.getItems().get(value).getId();
+  Reponse rep  =  psrep.recupererReclamationAvecReponse(tabview.getItems().get(value).getId());
+  //System.out.println(tabview.getItems().get(value).getId());
+     resp.setText("Response to [ "+tabview.getItems().get(value).getId()+" ]");
     if(rep==null){
          add.setVisible(true);
           update.setVisible(false);

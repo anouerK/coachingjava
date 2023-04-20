@@ -14,14 +14,14 @@
    <children>
       <VBox fx:id="vbox" prefHeight="231.0" prefWidth="1020.0" stylesheets="@../../../turbooo_devs/src/valuesShop/shop.css">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="1010.0" spacing="55.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
+            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="1010.0" spacing="30.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
                <children>
-                  <Label fx:id="sujet" prefHeight="22.0" prefWidth="161.0" text="Sujet: aaa">
+                  <Label fx:id="sujet" prefHeight="22.0" prefWidth="152.0" text="Sujet: aaa">
                      <font>
                         <Font name="Cambria" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="desc" prefHeight="77.0" prefWidth="610.0" text="Description: bbb">
+                  <Label fx:id="desc" prefHeight="77.0" prefWidth="654.0" text="Description: bbb">
                      <font>
                         <Font name="Cambria" size="18.0" />
                      </font>
@@ -44,7 +44,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="1010.0" spacing="25.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
                <children>
-                  <Label fx:id="reponse" prefHeight="22.0" prefWidth="207.0" text="Reponse: aaa">
+                  <Label fx:id="reponse" prefHeight="22.0" prefWidth="460.0" text="Reponse: aaa">
                      <font>
                         <Font name="Cambria" size="18.0" />
                      </font>

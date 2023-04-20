@@ -27,7 +27,7 @@ import javafx.scene.layout.VBox;
 /**
  * FXML Controller class
  *
- * @author USER
+ * @author ons
  */
 public class MainRendezVousItemController implements Initializable {
 

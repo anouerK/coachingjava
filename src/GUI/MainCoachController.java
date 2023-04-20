@@ -25,7 +25,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 /**
  * FXML Controller class
  *
- * @author ksaay
+ * @author ons
  */
 public class MainCoachController implements Initializable {
 
