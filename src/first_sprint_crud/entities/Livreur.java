@@ -14,6 +14,15 @@ public class Livreur {
       private String nom;
       private String prenom;
 
+    public Livreur(int id) {
+        this.id = id;
+    }
+
+    public Livreur() {
+    }
+      
+      
+
     public Livreur(int id, String nom, String prenom) {
         this.id = id;
         this.nom = nom;

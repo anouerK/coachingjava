@@ -84,6 +84,9 @@ public class MainProduitController implements Initializable {
     private Label imgurl;
     
     ProduitService psm = new ProduitService();
+    
+    
+    
 
     /**
      * Initializes the controller class.

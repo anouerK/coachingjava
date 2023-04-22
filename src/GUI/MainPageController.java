@@ -56,6 +56,8 @@ public class MainPageController implements Initializable {
     private Button reclamation;
     @FXML
     private Button reclamationback;
+    @FXML
+    private Button shop;
 
     /**
      * Initializes the controller class.
@@ -204,6 +206,9 @@ System.out.println("no file found");
    stage.setScene(scene);
    stage.show();
     }
+    
+    
+    
 
     @FXML
     private void reclamationbackview(ActionEvent event) {
@@ -222,6 +227,15 @@ System.out.println("no file found");
           catch(Exception e ){
 System.out.println("no file found");
     }
+    }
+
+    @FXML
+    private void shophview(ActionEvent event)throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Shop.fxml"));
+   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+   scene = new Scene(root);
+   stage.setScene(scene);
+   stage.show();
     }
     
 }
