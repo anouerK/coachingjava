@@ -156,22 +156,11 @@ public class CoachService implements IService<Coach> {
     }
     
     
-    public List<Coach> recupererByNomPrenom(String nomF ,String prenomF) {
+    public List<Coach> recupererByNomPrenom(String search) {
      List<Coach> coachs = new ArrayList<>();
-     String sql = "SELECT * FROM coach";
+     String sql = "SELECT * FROM coach where nom LIKE '" + "%" +search+ "%" + "'  or prenom LIKE '" + "%" +search+ "%" + "'  ";
     try {
-        
-    
-          if(nomF!="" && prenomF=="")
-         sql = "SELECT * FROM coach where nom LIKE '" + "%" +nomF+ "%" + "'  ";
-          
-           if(nomF=="" && prenomF!="")
-         sql = "SELECT * FROM coach where prenom LIKE '" + "%" +prenomF+ "%" + "'  ";
-           
-             if(nomF!="" && prenomF!="")
-         sql = "SELECT * FROM coach where nom LIKE '" + "%" +nomF+ "%" + "' and prenom like '"  + "%" +prenomF+ "%" + "'  " ;
 
-       
         Statement stmt = cnx.createStatement();
 
        

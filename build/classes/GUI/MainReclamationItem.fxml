@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane1" prefHeight="207.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainReclamationItemController">
+<AnchorPane id="AnchorPane" fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainReclamationItemController">
    <children>
-      <VBox fx:id="vbox" prefHeight="231.0" prefWidth="1020.0" stylesheets="@../../../turbooo_devs/src/valuesShop/shop.css">
+      <VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="900.0" stylesheets="@../../../turbooo_devs/src/valuesShop/shop.css">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="1010.0" spacing="30.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
+            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="904.0" spacing="30.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
                <children>
                   <Label fx:id="sujet" prefHeight="22.0" prefWidth="152.0" text="Sujet: aaa">
                      <font>
@@ -42,7 +42,7 @@
                   <Insets left="50.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="1010.0" spacing="25.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="944.0" spacing="25.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
                <children>
                   <Label fx:id="reponse" prefHeight="22.0" prefWidth="460.0" text="Reponse: aaa">
                      <font>

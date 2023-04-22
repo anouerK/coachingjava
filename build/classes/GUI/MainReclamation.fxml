@@ -123,7 +123,7 @@
                         </Label>
                         <Button fx:id="ret" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ret" prefHeight="25.0" prefWidth="85.0" text="retour">
                            <HBox.margin>
-                              <Insets left="700.0" />
+                              <Insets left="600.0" />
                            </HBox.margin>
                         </Button>
                      </children>
