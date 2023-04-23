@@ -157,7 +157,7 @@ public class ProduitService implements IService<Produit> {
             double prix = rs.getDouble("prix_prod");
             String description = rs.getString("description");
             String image = rs.getString("photo");
-
+            image = MyDB.url_upload + image;
              produit = new Produit(id, nom, prix, description, image);
            
         }
@@ -245,8 +245,8 @@ public class ProduitService implements IService<Produit> {
             String nom = rs.getString("nom_prod");
             double prix = rs.getDouble("prix_prod");
             String description = rs.getString("description");
-            String image = rs.getString("photo");
-
+             String image = rs.getString("photo");
+            image = MyDB.url_upload + image;
             Produit produit = new Produit(id, nom, prix, description, image);
             produits.add(produit);
         }
