@@ -44,7 +44,7 @@
                   <Image url="@../assets/contact_logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="54.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="shop" fitHeight="54.0" fitWidth="72.0" onMousePressed="#shopaction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/shop_logo.png" />
                </image>

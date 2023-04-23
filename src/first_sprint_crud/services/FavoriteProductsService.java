@@ -45,7 +45,7 @@ public class FavoriteProductsService {
     
     public void supprimer(int id) {
  try {
-            String req = "delete from favorite_products  where id=" + " '"+ id + "' ";
+            String req = "delete from favorite_products  where product_id_id=" + " '"+ id + "' ";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.executeUpdate();
 

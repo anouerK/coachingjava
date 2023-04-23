@@ -15,6 +15,16 @@ public class Livraison {
     private Livreur livreur;
     private Produit prod;
 
+    public Livraison(String localisation, Livreur livreur, Produit prod) {
+        this.localisation = localisation;
+        this.livreur = livreur;
+        this.prod = prod;
+    }
+
+
+    
+    
+
     public Livraison(int id, String dateliv, String localisation, Livreur livreur,Produit prod) {
         this.id = id;
         this.dateliv = dateliv;

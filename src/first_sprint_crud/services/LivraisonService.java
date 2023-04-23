@@ -14,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,10 +87,12 @@ public class LivraisonService implements IService<Livraison> {
     @Override
     public void ajouter(Livraison c) {
 
-
+  DateTimeFormatter date =   DateTimeFormatter.ofPattern("yyyy-MM-dd");
+              LocalDateTime now =  LocalDateTime.now();
+              
         try {
    String req = "insert into livraison(livreur_id,dateliv,localisation,prod_id)"
-   + "values( '" + c.getLivreur().getId()+ "' ,   '" + c.getDateliv()+  "' ,  '" + c.getLocalisation()+ "' ,  '" + c.getProd().getId() +   "')";
+   + "values( '" + c.getLivreur().getId() + "' ,   '" + date.format(now)+  "' ,  '" + c.getLocalisation()+ "' ,  '" + c.getProd().getId() +   "')";
 
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
