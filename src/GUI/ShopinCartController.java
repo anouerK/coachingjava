@@ -4,6 +4,7 @@
  */
 package GUI;
 
+
 import first_sprint_crud.entities.Livraison;
 import first_sprint_crud.entities.Livreur;
 import first_sprint_crud.entities.panier;
@@ -21,6 +22,8 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +35,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -69,6 +73,14 @@ public class ShopinCartController implements Initializable {
     ProduitService psm = new ProduitService(); 
     LivraisonService psl = new LivraisonService();
     LivreurService psliv = new LivreurService();
+    @FXML
+    private Label livreurL;
+    @FXML
+    private ComboBox<String> livreur;
+    @FXML
+    private Label localisation;
+    
+     ObservableMap<String, Livreur> livMap = FXCollections.observableHashMap();
 
     /**
      * Initializes the controller class.
@@ -80,9 +92,20 @@ public class ShopinCartController implements Initializable {
         {
             prodvide.setText("Panier vide");
              commande.setVisible(false);
+             livreurL.setVisible(false);
+             localisation.setVisible(false);
+             livreur.setVisible(false);
+             local.setVisible(false);
+             
         }
             else
          prodvide.setText("Votre Produits:");  
+          
+          for (Livreur c : psliv.recuperer()) {
+    String key = c.getNom() + " " + c.getPrenom();
+    livMap.put(key, c);
+}
+livreur.setItems(FXCollections.observableArrayList(livMap.keySet()));
             
         showpanier();
     }   
@@ -153,32 +176,34 @@ public class ShopinCartController implements Initializable {
 
     @FXML
     private void commandeaction(ActionEvent event) throws IOException {
-        for(Livreur l : psliv.recuperer())
-        {
+        
+        
+        
+       
+        if(!local.getText().isEmpty() || livreur.getSelectionModel().getSelectedItem() == null ){
             
-        }
-        if(!local.getText().isEmpty()){
+        Random r = new Random();
+        String  y =""+ r.nextInt(99999);
+        JavafxPi.myWeb2=y;
           
-            for( panier panier2 : JavafxPi.pan)
-            {
-                 for(Livreur l : psliv.recuperer())
-        {
+            String selectedCoach = livreur.getSelectionModel().getSelectedItem();
+            Livreur c = livMap.get(selectedCoach);
             
-                Produit pr =  psm.recupererById(panier2.getProd().getId());
-                Livraison liv = new Livraison(local.getText(),l,pr);
-                psl.ajouter(liv);
-                break;
-                
-        }       
-            }
-            JavafxPi.pan.clear();
+            JavafxPi.l=c;
+            JavafxPi.local=local.getText();
             
-   Parent root = FXMLLoader.load(getClass().getResource("Shop.fxml"));
+            
+            
+   Parent root = FXMLLoader.load(getClass().getResource("Commande_verif.fxml"));
    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
    scene = new Scene(root);
    stage.setScene(scene);
    stage.show(); 
         }
+    }
+
+    @FXML
+    private void selectLivreur(ActionEvent event) {
     }
     
 }

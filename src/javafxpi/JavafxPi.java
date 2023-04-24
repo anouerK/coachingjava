@@ -4,6 +4,7 @@
  */
 package javafxpi;
 
+import first_sprint_crud.entities.Livreur;
 import first_sprint_crud.entities.panier;
 import java.io.IOException;
 import javafx.application.Application;
@@ -25,6 +26,8 @@ import javafx.stage.Stage;
 public class JavafxPi extends Application {
      public  static ObservableList<panier> pan=FXCollections.observableArrayList();
      public static String myWeb2="";
+     public static String local ="";
+     public static Livreur l ;
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/MainPage.fxml"));

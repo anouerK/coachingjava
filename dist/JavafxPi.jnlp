@@ -8,9 +8,18 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavafxPi.jar" size="1208641" download="eager" />
+    <jar href="JavafxPi.jar" size="1310756" download="eager" />
+    <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
+    <jar href="lib\activation.jar" size="124332" download="eager" />
+    <jar href="lib\controlsfx-8.40.14.jar" size="1215643" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\zxing-1.7-javase.jar" size="22002" download="eager" />
+    <jar href="lib\zxing-core-2.0.jar" size="432773" download="eager" />
   </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavafxPi" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="javafxpi.JavafxPi"  name="JavafxPi" />
   <update check="always"/>
 </jnlp>

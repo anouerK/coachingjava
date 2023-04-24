@@ -19,7 +19,7 @@
             <Image url="@../assets/gym.png" />
          </image>
       </ImageView>
-      <HBox layoutX="1198.0" prefHeight="58.0" prefWidth="403.0" style="-fx-background-color: #E0E0E0;">
+      <HBox layoutX="1041.0" layoutY="2.0" prefHeight="58.0" prefWidth="403.0" style="-fx-background-color: #E0E0E0;">
          <children>
             <ImageView fx:id="coachb" fitHeight="52.0" fitWidth="160.0" onMouseClicked="#coachv" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,14 +39,14 @@
                   <Insets />
                </HBox.margin>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/contact_logo.png" />
-               </image>
-            </ImageView>
             <ImageView fx:id="shop" fitHeight="54.0" fitWidth="72.0" onMousePressed="#shopaction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/shop_logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/contact_logo.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="51.0" fitWidth="70.0" pickOnBounds="true">
