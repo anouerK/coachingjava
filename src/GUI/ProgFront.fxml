@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -8,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.ProgFrontController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProgFrontController">
    <children>
       <TextField fx:id="searchb" layoutX="530.0" layoutY="140.0" onKeyTyped="#onSearch" prefHeight="25.0" prefWidth="374.0" />
       <ImageView fitHeight="53.0" fitWidth="77.0" layoutX="926.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
@@ -27,5 +27,6 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </ScrollPane>
+      <ComboBox fx:id="orderby" layoutX="1078.0" layoutY="140.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

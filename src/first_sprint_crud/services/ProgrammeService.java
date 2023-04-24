@@ -152,7 +152,13 @@ public class ProgrammeService implements IService<Programme> {
     
     public List recupererByCriterias(String search ,int order) {
         List<Programme> programmes = new ArrayList<>();
-        String sql = "SELECT * FROM programme WHERE nom LIKE '%" + search + "%' OR type LIKE '%" + search + "%' ORDER BY likes " + (order == 0 ? "ASC" : "DESC") + ";";
+       
+        String sql;
+        if(search.equals(""))
+            sql = "SELECT * FROM programme  ORDER BY likes " + (order == 0 ? "ASC" : "DESC") + ";";
+            else
+            
+        sql = "SELECT * FROM programme WHERE nom LIKE '%" + search + "%' OR type LIKE '%" + search + "%' ORDER BY likes " + (order == 0 ? "ASC" : "DESC") + ";";
 
 
    
