@@ -19,6 +19,15 @@ public class Programme {
     public Programme(int id) {
         this.id = id;
     }
+
+    public Programme(Programme p) {
+        this.id = p.id;
+        this.nom = p.nom;
+        this.type = p.type;
+        this.media = p.media;
+        this.dure = p.dure;
+        this.likes = p.likes;
+    }
      
      
 

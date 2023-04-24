@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -137,7 +139,7 @@ public class ProgrammeService implements IService<Programme> {
             String media = rs.getString("media");
             int dure = rs.getInt("dure");
             int likes = rs.getInt("likes");
-          
+            media = MyDB.url_upload + media;
 
              programme = new Programme(id,nom,type,media,dure,likes);
             
@@ -148,91 +150,32 @@ public class ProgrammeService implements IService<Programme> {
     return programme;
     }
     
-    public List recupererNomTypeOrderByLikes(String nomF , String typeF ,int p) {
+    public List recupererByCriterias(String search ,int order) {
         List<Programme> programmes = new ArrayList<>();
-        String sql="SELECT * FROM programme";
-        
-    try {
-           if(nomF!="" && typeF=="" && p==1)
-      {
-          sql = "SELECT * FROM programme where nom  LIKE '" + "%" +nomF+ "%" +"'order by likes ";
-      }
-       
-        if(nomF!="" && typeF=="" && p==2)
-      {
-          sql = "SELECT * FROM programme where nom  LIKE '" + "%" +nomF+ "%" +"'order by likes desc ";
-      }
-        
-         if(nomF!="" && typeF=="" && p==0)
-      {
-          sql = "SELECT * FROM programme where nom  LIKE '" + "%" +nomF+ "%" +"' ";
-      }
-         
-         
-         if(nomF=="" && typeF!="" && p==1)
-      {
-          sql = "SELECT * FROM programme where type  LIKE '" + "%" +typeF+ "%" +"'order by likes ";
-      }
-       
-        if(nomF=="" && typeF!="" && p==2)
-      {
-          sql = "SELECT * FROM programme where type  LIKE '" + "%" +typeF+ "%" +"'order by likes desc ";
-      }
-        
-         if(nomF=="" && typeF!="" && p==0)
-      {
-          sql = "SELECT * FROM programme where type  LIKE '" + "%" +typeF+ "%" +"' ";
-      }
-         
-         
-         
-         if(nomF!="" && typeF!="" && p==1)
-      {
-          sql = "SELECT * FROM programme where nom  LIKE '" + "%" +nomF+ "%" + "' and type like '"  + "%" +typeF+ "%" +"'order by likes ";
-      }
-       
-        if(nomF!="" && typeF!="" && p==2)
-      {
-          sql = "SELECT * FROM programme where nom  LIKE '" + "%" +nomF+ "%" + "' and type like '"  + "%" +typeF+ "%" +"'order by likes desc ";
-      }
-        
-         if(nomF!="" && typeF!="" && p==0)
-      {
-          sql = "SELECT * FROM programme where nom  LIKE '" + "%" +nomF+ "%" + "' and type like '"  + "%" +typeF+ "%" +"' ";
-      }
-         
-         
-        
-         if(nomF=="" && typeF=="" && p==1)
-      {
-         sql = "SELECT * FROM programme order by likes";
-      }
-         
-            if(nomF=="" && typeF=="" && p==2)
-      {
-         sql = "SELECT * FROM programme order by likes desc";
-      }
-     Statement stmt = cnx.createStatement();
+        String sql = "SELECT * FROM programme WHERE nom LIKE '%" + search + "%' OR type LIKE '%" + search + "%' ORDER BY likes " + (order == 0 ? "ASC" : "DESC") + ";";
 
-       
-        ResultSet rs = stmt.executeQuery(sql);
 
    
-        while (rs.next()) {
-            int id = rs.getInt("id");
-            String nom = rs.getString("nom");
-            String type = rs.getString("type");
-            String media = rs.getString("media");
-            int dure = rs.getInt("dure");
-            int likes = rs.getInt("likes");
-          
-
-            Programme programme = new Programme(id,nom,type,media,dure,likes);
-            programmes.add(programme);
-        }
+        try {
+            Statement stmt = cnx.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nom = rs.getString("nom");
+                String type = rs.getString("type");
+                String media = rs.getString("media");
+                int dure = rs.getInt("dure");
+                int likes = rs.getInt("likes");
+                media = MyDB.url_upload + media;
+                
+                Programme programme = new Programme(id,nom,type,media,dure,likes);
+                programmes.add(programme);
+            }
         } catch (SQLException ex) {
-        System.out.println("Erreur lors de la récupération des programmes : " + ex.getMessage());
-    }
+            Logger.getLogger(ProgrammeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
     return programmes;
     }
     

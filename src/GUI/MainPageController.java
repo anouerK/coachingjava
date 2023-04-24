@@ -4,9 +4,12 @@
  */
 package GUI;
 
+import first_sprint_crud.entities.Programme;
+import first_sprint_crud.services.ProgrammeService;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,13 +20,18 @@ import javafx.scene.layout.Pane;
 import javafxpi.JavafxPi;
 
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -58,12 +66,57 @@ public class MainPageController implements Initializable {
     @FXML
     private Button reclamationback;
 
+     ProgrammeService psp = new ProgrammeService();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        List<Programme> programms = psp.recuperer();
+        int abdou_count = 0 , yoga_count  = 0, musculation_count = 0, fitness_count = 0;
+        
+        for ( int i = 0 ; i< programms.size() ; i++)
+        {
+            if (programms.get(i).getType().equals("Musculation"))
+                musculation_count++;
+            if (programms.get(i).getType().equals("Abdou"))
+                abdou_count++;
+            if (programms.get(i).getType().equals("Fitness"))
+                fitness_count++;
+            if (programms.get(i).getType().equals("Yoga"))
+                yoga_count++;
+            
+            
+        }
+ 
+        
+         ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                        new PieChart.Data("Abdou", abdou_count),
+                        new PieChart.Data("Yoga", yoga_count),
+                        new PieChart.Data("Musculation", musculation_count),
+                        new PieChart.Data("Fitness", fitness_count)
+                );
+
+         
+        // Create the chart
+        PieChart chart = new PieChart(pieChartData);
+        chart.setLegendVisible(true); // Hide the chart legend
+        chart.setLabelsVisible(true); // Hide the labels on the chart
+        chart.setStyle("-fx-background-color: transparent;");
+
+        
+
+        // Create a VBox layout to hold the chart
+        VBox layout = new VBox();
+        layout.setAlignment(Pos.CENTER);
+        layout.getChildren().add(chart);
+        // Create a Scene and display it
+        Scene scenee = new Scene(layout, 1, 1);
+        view.getChildren().add(scenee.getRoot());
+        
     }
 
     @FXML

@@ -16,6 +16,10 @@ public class FavoriteProgrammes {
         this.id = id;
         this.prog = prog;
     }
+    public FavoriteProgrammes()
+    {
+        
+    }
 
     public FavoriteProgrammes(Programme prog) {
         this.prog = prog;
