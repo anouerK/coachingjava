@@ -136,19 +136,7 @@ public class Commande_verifController implements Initializable {
               
             }
             
-            
-          /*  Alert alert = new Alert(AlertType.INFORMATION);
-           alert.setTitle("Livraison Ajuter");
-           alert.setContentText("Votre Livraison est ajouter avec succes ");
-            
-            Optional <ButtonType> result = alert.showAndWait();
-            if(result.isPresent() && result.get() ==ButtonType.OK){
-   Parent root = FXMLLoader.load(getClass().getResource("Shop.fxml"));
-   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-   scene = new Scene(root);
-   stage.setScene(scene);
-   stage.show();
-            }*/
+
             
              for( panier panier2 : JavafxPi.pan)
             {         

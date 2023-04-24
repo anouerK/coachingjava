@@ -26,7 +26,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
+import org.controlsfx.control.Notifications;
 /**
  * FXML Controller class
  *
@@ -112,6 +112,10 @@ public class ProgFrontController implements Initializable {
         prm.setLikes(prm.getLikes()+1);
         psm.modifier(prm);
         show("");
+         Notifications.create()
+    .title("Success")
+    .text("like has been added!")
+    .show();
         //FavoriteProgrammes fav = new FavoriteProgrammes(programs.get(index)); // use the index variable instead of i + j
         ////psf.ajouter(fav);
         //show("");
@@ -135,12 +139,22 @@ public class ProgFrontController implements Initializable {
         FavoriteProgrammes favadd = new FavoriteProgrammes(programs.get(index)); 
         psf.ajouter(favadd);
         show("");
+        Notifications.create()
+    .title("Success")
+    .text("program has been added to your favorites!")
+    .show();
+
+        
         }
         else
         {
             System.out.println(psf.recupererFavoritebyProgid(programs.get(index).getId()));
             psf.supprimer(psf.recupererFavoritebyProgid(programs.get(index).getId()));
             show("");
+            Notifications.create()
+    .title("Success")
+    .text("program has been removed from your favorites!")
+    .show();
         }
         // add your code to handle the like button click here
     });
