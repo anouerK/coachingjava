@@ -104,6 +104,8 @@ public class ShopController implements Initializable {
     
     @FXML
     private ImageView favorite;
+    @FXML
+    private ImageView livraison;
     
      private void setchosenproduit(Produit prod)
     {
@@ -169,7 +171,7 @@ public class ShopController implements Initializable {
     } 
      public void showshop(ObservableList<Produit> list)
     {
-        System.out.println("listt" + list);
+       
          int column=0;
         int row=1;
         int x=0;
@@ -315,6 +317,15 @@ public class ShopController implements Initializable {
     @FXML
     private void favoriteaction(MouseEvent event) throws IOException {
    Parent root = FXMLLoader.load(getClass().getResource("FavoriteProducts.fxml"));
+   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+   scene = new Scene(root);
+   stage.setScene(scene);
+   stage.show();
+    }
+
+    @FXML
+    private void livraisonaction(MouseEvent event) throws IOException {
+   Parent root = FXMLLoader.load(getClass().getResource("Livraison.fxml"));
    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
    scene = new Scene(root);
    stage.setScene(scene);

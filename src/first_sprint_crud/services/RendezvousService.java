@@ -59,6 +59,44 @@ public class RendezvousService implements IService<RendezVous> {
     return RendezVouss;
         
     }
+    
+    
+    public List<RendezVous> recupererById(int idF) {
+       List<RendezVous> RendezVouss = new ArrayList<>();
+    try {
+        
+    
+      
+        String sql = "select * from rendez_vous  r inner join coach on coach.id = " + " '"+ idF + "' ";
+
+       
+        Statement stmt = cnx.createStatement();
+
+       
+        ResultSet rs = stmt.executeQuery(sql);
+
+   
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            int  id_coach = rs.getInt(2);
+            String nom = rs.getString(3);
+            String prenom = rs.getString(4);
+            String contact = rs.getString(5);
+            String nom_coach = rs.getString(7);
+            String prenom_coach = rs.getString(8);
+            Coach c = new Coach(id_coach,nom_coach,prenom_coach);
+            RendezVous rendezvous = new RendezVous(id, nom, prenom, c,contact);
+            RendezVouss.add(rendezvous);
+        }
+        } catch (SQLException ex) {
+        System.out.println("Erreur lors de la récupération des Livraisons : " + ex.getMessage());
+    }
+
+    return RendezVouss;
+        
+    }
+    
+    
     public void supprimer(int id) {
  try {
             String req = "delete from rendez_vous  where id=" + " '"+ id + "' ";

@@ -51,18 +51,12 @@ public class MainPageController implements Initializable {
     private Button produit;
     @FXML
     private Button livreur;
-    @FXML
-    private Button rendezvous;
     
       private Stage stage;
     private Scene scene;
     private Parent root;
     @FXML
     private Button article;
-    @FXML
-    private Button articlef;
-    @FXML
-    private Button reclamation;
     @FXML
     private Button reclamationback;
 
@@ -209,7 +203,6 @@ System.out.println("no file found");
         
     }
 
-    @FXML
     private void rendezvousview(ActionEvent event) throws IOException {
    Parent root = FXMLLoader.load(getClass().getResource("MainRendezVous.fxml"));
    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -241,7 +234,6 @@ System.out.println("no file found");
     }
     }
 
-    @FXML
     private void articlevf(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ArticleFront.fxml"));
    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -250,7 +242,6 @@ System.out.println("no file found");
    stage.show();
     }
 
-    @FXML
     private void reclamationview(ActionEvent event)throws IOException {
    Parent root = FXMLLoader.load(getClass().getResource("MainReclamation.fxml"));
    stage = (Stage)((Node)event.getSource()).getScene().getWindow();

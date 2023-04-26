@@ -31,7 +31,7 @@
                   <Image url="@../assets/prog_logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="51.0" fitWidth="64.0" pickOnBounds="true" HBox.hgrow="NEVER">
+            <ImageView fx:id="rendez" fitHeight="51.0" fitWidth="64.0" onMousePressed="#rendezaction" pickOnBounds="true" HBox.hgrow="NEVER">
                <image>
                   <Image url="@../assets/articles_logo.png" />
                </image>
@@ -52,11 +52,6 @@
             <ImageView fitHeight="51.0" fitWidth="70.0" pickOnBounds="true">
                <image>
                   <Image url="@../assets/dashboard_logo.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="favp" fitHeight="54.0" fitWidth="67.0" onMouseClicked="#favpview" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/fav_logo.png" />
                </image>
             </ImageView>
          </children>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -35,26 +34,6 @@
                            </font>
                         </Label>
                      </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../valuesShop/shop.css">
-                     <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
-                     </VBox.margin>
-                     <children>
-                        <TextField fx:id="searchtxt" onAction="#searchtxtaction" onKeyPressed="#searchtxtaction2" prefHeight="40.0" prefWidth="230.0" promptText="Type here to search" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../valuesShop/shop.css" text="Search" textFill="WHITE" />
-                     </children>
-                     <styleClass>
-                        <String fx:value="search-box" />
-                        <String fx:value="shadow" />
-                     </styleClass>
                   </HBox>
                   <Pane prefHeight="70.0" prefWidth="437.0" />
                   <VBox fx:id="ChosenProdCard" alignment="CENTER" prefHeight="535.0" prefWidth="337.0" styleClass="chosen-product-card" stylesheets="@../valuesShop/shop.css">
@@ -143,22 +122,28 @@
          <center>
             <VBox prefHeight="825.0" prefWidth="1010.0" styleClass="white" stylesheets="@../../../turbooo_devs/src/valuesShop/shop.css" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="BOTTOM_LEFT" prefHeight="106.0" prefWidth="1178.0" styleClass="white" stylesheets="@../valuesShop/shop.css">
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="106.0" prefWidth="1178.0" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
                      <children>
                         <Label fx:id="prodvide" textFill="#f16c31">
                            <font>
                               <Font name="Cambria" size="24.0" />
                            </font>
                         </Label>
-                        <Button fx:id="ret" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ret" prefHeight="25.0" prefWidth="85.0" text="retour">
-                           <HBox.margin>
-                              <Insets left="600.0" />
-                           </HBox.margin>
-                        </Button>
                      </children>
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="903.0" spacing="100.0" styleClass="search-box" stylesheets="@../valuesShop/shop.css">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="60.0" text="Filter:" textFill="#f16c31">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbcoach" onAction="#selectcoach" prefWidth="150.0" promptText="Coach" styleClass="transparent" />
+                        <Button fx:id="refresh" mnemonicParsing="false" onAction="#refreshaction" prefHeight="28.0" prefWidth="58.0" styleClass="search-button" stylesheets="@../valuesShop/shop.css" text="Refresh" textFill="WHITE" />
+                     </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" styleClass="white" stylesheets="@../../../turbooo_devs/src/valuesShop/shop.css" VBox.vgrow="ALWAYS">
                      <children>
