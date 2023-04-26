@@ -14,6 +14,7 @@ import java.io.IOException;
 
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,8 +49,6 @@ import javafx.stage.Stage;
 public class MainRendezVousController implements Initializable {
 
     @FXML
-    private TextField searchtxt;
-    @FXML
     private VBox ChosenProdCard;
     @FXML
     private Button Add;
@@ -71,9 +70,14 @@ public class MainRendezVousController implements Initializable {
 RendezvousService psm = new RendezvousService();
 CoachService psc = new CoachService();
 
+
+
  ObservableMap<String, Coach> coachMap = FXCollections.observableHashMap();
+ 
     @FXML
-    private Button ret;
+    private ComboBox<String> cbcoach;
+    @FXML
+    private Button refresh;
     /**
      * Initializes the controller class.
      */
@@ -94,19 +98,38 @@ for (Coach c : psc.recuperer()) {
     coachMap.put(key, c);
 }
 coach.setItems(FXCollections.observableArrayList(coachMap.keySet()));
+cbcoach.setItems(FXCollections.observableArrayList(coachMap.keySet()));
+
+    
+
+ObservableList<RendezVous> items = FXCollections.observableArrayList(psm.recuperer());
             
-        show();
+        show(items);
     }   
     
     
-    public void show()
+    public void show(ObservableList<RendezVous> items2 )
     {
         int column=0;
         int row=1;
         int x=0;
+        
+        
+                      
+                  FXMLLoader fxmlloader2 = new  FXMLLoader();
+                fxmlloader2.setLocation(getClass().getResource("MainRendezVousItem.fxml"));
+        try {
+            AnchorPane pane2 = fxmlloader2.load();
+        } catch (IOException ex) {
+            Logger.getLogger(ShopController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                 
+                GUI.MainRendezVousItemController items3 = fxmlloader2.getController();
+                items3.refresh();
+                grid.getChildren().removeAll(grid.getChildren());
        
          try {
-        for(RendezVous pan : psm.recuperer())
+        for(RendezVous pan : items2)
         {
            
                 FXMLLoader fxmlloader = new  FXMLLoader();
@@ -145,13 +168,6 @@ coach.setItems(FXCollections.observableArrayList(coachMap.keySet()));
         
     }
 
-    @FXML
-    private void searchtxtaction2(KeyEvent event) {
-    }
-
-    @FXML
-    private void searchtxtaction(ActionEvent event) {
-    }
 
 
     @FXML
@@ -175,8 +191,8 @@ coach.setItems(FXCollections.observableArrayList(coachMap.keySet()));
             nom.setText("");
             prenomm.setText("");
             contact.setText("");
-            
-            show();
+        ObservableList<RendezVous> items = FXCollections.observableArrayList(psm.recuperer());    
+            show(items);
             
         }
         
@@ -186,13 +202,53 @@ coach.setItems(FXCollections.observableArrayList(coachMap.keySet()));
     private void coachcomboaction(ActionEvent event) {
     }
 
-    @FXML
     private void ret(ActionEvent event) throws IOException {
          Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
    scene = new Scene(root);
    stage.setScene(scene);
    stage.show();
+    }
+    
+    
+
+    @FXML
+    private void selectcoach(ActionEvent event) {
+    String selectedCoach = cbcoach.getSelectionModel().getSelectedItem();
+    if (selectedCoach == null) {
+              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Add Error");
+            alert.setContentText(" nothing is selected, so do nothing");
+
+            alert.showAndWait(); 
+    }
+    
+    Coach c = coachMap.get(selectedCoach);
+  
+    ArrayList<RendezVous> list = new ArrayList();
+    
+       ObservableList<RendezVous> items2 = FXCollections.observableArrayList(psm.recuperer()); 
+
+   for (RendezVous rv:  items2){
+       if(c.getId() == rv.getCoach().getId())
+       {
+           list.add(rv);
+       }
+   }
+   
+    ObservableList<RendezVous> items3 = FXCollections.observableArrayList(list); 
+    
+    System.out.println(items3);
+    
+    show(items3);
+}
+
+
+    @FXML
+    private void refreshaction(ActionEvent event) {
+      ObservableList<RendezVous> items = FXCollections.observableArrayList(psm.recuperer());
+           show(items);
     }
     
 }

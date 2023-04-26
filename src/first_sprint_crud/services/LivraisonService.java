@@ -58,6 +58,7 @@ public class LivraisonService implements IService<Livraison> {
             double prix = rs.getDouble(11);
             String description = rs.getString(12);
             String image = rs.getString(13);
+            image = MyDB.url_upload + image;
 
           
             Livreur livreur = new Livreur(id_livreur,nom_livreur,prenom_livreur);

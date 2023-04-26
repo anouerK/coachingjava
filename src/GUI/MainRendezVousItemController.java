@@ -57,6 +57,14 @@ public class MainRendezVousItemController implements Initializable {
         // TODO
     }    
     
+    
+    
+      public void  refresh()
+     {
+         vbox.getChildren().removeAll(vbox.getChildren());
+     }
+      
+      
      public void setData(RendezVous pan)
     {
        

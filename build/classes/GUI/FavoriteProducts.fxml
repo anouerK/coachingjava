@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,26 +37,6 @@
                                  </font>
                               </Label>
                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../valuesShop/shop.css">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                           <children>
-                              <TextField fx:id="searchtxt" onAction="#searchtxtaction" onKeyPressed="#searchtxtaction2" prefHeight="40.0" prefWidth="230.0" promptText="Type here to search" styleClass="transparent" stylesheets="@../valuesShop/shop.css">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </TextField>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../valuesShop/shop.css" text="Search" textFill="WHITE" />
-                           </children>
-                           <styleClass>
-                              <String fx:value="search-box" />
-                              <String fx:value="shadow" />
-                           </styleClass>
                         </HBox>
                         <Pane prefHeight="70.0" prefWidth="437.0" />
                         <VBox fx:id="ChosenProdCard" alignment="CENTER" prefHeight="535.0" prefWidth="337.0" styleClass="chosen-product-card" stylesheets="@../valuesShop/shop.css">
@@ -207,16 +184,6 @@
                            </padding>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="903.0" spacing="60.0" styleClass="search-box" stylesheets="@../valuesShop/shop.css">
-                           <children>
-                              <Label prefHeight="30.0" prefWidth="60.0" text="Filter:" textFill="#f16c31">
-                                 <font>
-                                    <Font name="Cambria Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="cbprix" onAction="#selectprix" prefWidth="150.0" promptText="Prix" styleClass="transparent" />
-                              <Button fx:id="filter" mnemonicParsing="false" onAction="#filteraction" prefHeight="28.0" prefWidth="57.0" styleClass="search-button" stylesheets="@../valuesShop/shop.css" text="Filter" textFill="WHITE" />
-                              <Button fx:id="refresh" mnemonicParsing="false" onAction="#refreshaction" prefHeight="28.0" prefWidth="58.0" styleClass="search-button" stylesheets="@../valuesShop/shop.css" text="Refresh" textFill="WHITE" />
-                           </children>
                            <VBox.margin>
                               <Insets top="30.0" />
                            </VBox.margin>

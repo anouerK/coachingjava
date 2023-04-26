@@ -40,6 +40,8 @@ public class MainFrontController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    @FXML
+    private ImageView rendez;
     
     
     
@@ -129,6 +131,29 @@ System.out.println("no file found");
     @FXML
     private void reclamationv(MouseEvent event) {
         URL fileUrl = JavafxPi.class.getResource("/GUI/MainReclamation.fxml");
+        try {
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException(" Fxml file not found ");
+            }
+            else
+            {
+                   FXMLLoader loader = new FXMLLoader(fileUrl);
+            Pane pane = loader.load();
+            pane.setPrefSize(700, 700);
+            pane.setMaxHeight(700);
+            pane.setMaxWidth(700);
+                 
+            panev.getChildren().setAll(pane);
+            }
+        }
+        catch(Exception e ){
+System.out.println("no file found");
+    }
+    }
+
+    @FXML
+    private void rendezaction(MouseEvent event) {
+         URL fileUrl = JavafxPi.class.getResource("/GUI/MainRendezVous.fxml");
         try {
             if (fileUrl == null) {
                 throw new java.io.FileNotFoundException(" Fxml file not found ");

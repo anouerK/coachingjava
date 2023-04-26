@@ -121,6 +121,11 @@
                               <Image url="@../Images/heart.png" />
                            </image>
                         </ImageView>
+                        <ImageView fx:id="livraison" fitHeight="50.0" fitWidth="180.0" onMousePressed="#livraisonaction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/livraison.jpg" />
+                           </image>
+                        </ImageView>
                         <Pane prefHeight="65.0" prefWidth="734.0">
                            <opaqueInsets>
                               <Insets />
@@ -128,7 +133,10 @@
                            <padding>
                               <Insets left="50.0" />
                            </padding></Pane>
-                        <ImageView fx:id="cart" fitHeight="50.0" fitWidth="200.0" onMousePressed="#Cartaction" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="cart" fitHeight="50.0" fitWidth="200.0" onMousePressed="#Cartaction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/ic_cart.png" />
+                           </image></ImageView>
                         <VBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="26.0" styleClass="search-box" stylesheets="@../valuesShop/shop.css">
                            <children>
                               <Label fx:id="countlbl" prefHeight="20.0" prefWidth="0.0" stylesheets="@../valuesShop/shop.css" textFill="RED" />

@@ -48,8 +48,6 @@ import javafxpi.JavafxPi;
 public class FavoriteProductsController implements Initializable {
 
     @FXML
-    private TextField searchtxt;
-    @FXML
     private VBox ChosenProdCard;
     @FXML
     private Label namalabel;
@@ -71,12 +69,7 @@ public class FavoriteProductsController implements Initializable {
     private ImageView delivery;
     @FXML
     private ImageView time;
-    @FXML
     private ComboBox<String> cbprix;
-    @FXML
-    private Button filter;
-    @FXML
-    private Button refresh;
     @FXML
     private ScrollPane scroll;
     @FXML
@@ -155,7 +148,7 @@ public class FavoriteProductsController implements Initializable {
                listpr.add("Croissant");
                listpr.add("Decroissant");
                
-               cbprix.setItems(listpr);
+              
     }
 
 public void showshop(ObservableList<Produit> list)
@@ -218,16 +211,12 @@ public void showshop(ObservableList<Produit> list)
         
     }    
 
-     @FXML
     private void searchtxtaction2(KeyEvent event) {
          nom1= event.getText();
       //ObservableList<Produit> items = FXCollections.observableArrayList(psprod.recupererByNameAndPrixOrderByPrix(nom1, -1, -1,p));
        //showshop(items);
     }
 
-    @FXML
-    private void searchtxtaction(ActionEvent event) {
-    }
 
     @FXML
     private void AddToCart(ActionEvent event) {
@@ -272,32 +261,8 @@ public void showshop(ObservableList<Produit> list)
    stage.show();
     }
 
-    @FXML
-    private void selectprix(ActionEvent event) {
-        prix1 =cbprix.getSelectionModel().getSelectedItem().toString();
-    }
 
-    @FXML
-    private void filteraction(ActionEvent event) {
-        if(prix1=="Croissant")
-            {
-                p=1;
-            //     ObservableList<Produit> items = FXCollections.observableArrayList(psprod.recupererByNameAndPrixOrderByPrix(nom1, -1, -1,1));
-                
-          //  showshop(items);
-   
-            }
-            else if(prix1=="Decroissant")
-            {
-                p=2;
-                //ObservableList<Produit> items = FXCollections.observableArrayList(psprod.recupererByNameAndPrixOrderByPrix(nom1, -1, -1,2));
 
-          //showshop(items);
-
-            }
-    }
-
-     @FXML
     private void refreshaction(ActionEvent event) {
            ObservableList<Produit> items = FXCollections.observableArrayList(psprod.recupererFavorite());
            showshop(items);
@@ -307,10 +272,7 @@ public void showshop(ObservableList<Produit> list)
     private void favoriteaction(MouseEvent event) {
     }
     
-     public void refresh() {
-           ObservableList<Produit> items = FXCollections.observableArrayList(psprod.recupererFavorite());
-           showshop(items);
-    }
+
 
     @FXML
     private void shopaction(MouseEvent event) throws IOException {
