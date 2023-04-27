@@ -49,6 +49,11 @@
                         <Font name="Cambria" size="18.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="pdf" fitHeight="40.0" fitWidth="40.0" onMousePressed="#pdfaction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/pdf.png" />
+                     </image>
+                  </ImageView>
                </children>
                <padding>
                   <Insets left="50.0" />

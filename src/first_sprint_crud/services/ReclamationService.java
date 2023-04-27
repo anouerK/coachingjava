@@ -145,5 +145,37 @@ try {
     return reclamations;
     }
     
+      public List<Reclamation> recupererBySujet(String search) {
+ List<Reclamation> reclamations = new ArrayList<>();
+    try {
+        
+    
+      
+         
+       String sql1 = "SELECT * FROM reclamation where sujet LIKE '" + "%" +search+ "%" +  "'  ";
+
+         Statement stmt = cnx.createStatement();
+
+       
+        ResultSet rs = stmt.executeQuery(sql1);
+
+   
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            Date date_rec = rs.getDate("date_rec");
+            String sujet = rs.getString("sujet");
+            String description = rs.getString("description");
+            
+             
+                  Reclamation rec = new Reclamation(id,sujet,description);
+            reclamations.add(rec);
+        }
+        } catch (SQLException ex) {
+        System.out.println("Erreur lors de la récupération des Reclamations : " + ex.getMessage());
+    }
+
+    return reclamations;
+    }
+    
       
 }
