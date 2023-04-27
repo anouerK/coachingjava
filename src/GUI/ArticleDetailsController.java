@@ -3,6 +3,7 @@ package GUI;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
+import org.controlsfx.control.Notifications;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import first_sprint_crud.entities.Commentaire;
@@ -174,6 +175,10 @@ public class ArticleDetailsController implements Initializable {
             //listv.getItems().add(c);
             show();
             commetinput.setText("");
+             Notifications.create()
+                            .title("Saved")
+                            .text("your comment has been added!")
+                            .show();
          }
     }
 
