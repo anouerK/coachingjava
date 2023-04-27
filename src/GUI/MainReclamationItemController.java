@@ -48,6 +48,8 @@ public class MainReclamationItemController implements Initializable {
     ReponseService psrep = new ReponseService();
     @FXML
     private AnchorPane pane1;
+    @FXML
+    private ImageView pdf;
 
     /**
      * Initializes the controller class.
@@ -86,6 +88,10 @@ public class MainReclamationItemController implements Initializable {
          psrep.supprimer(idrep);
          psrec.supprimer(id);
          pane1.getChildren().removeAll(pane1.getChildren());
+    }
+
+    @FXML
+    private void pdfaction(MouseEvent event) {
     }
     
 }

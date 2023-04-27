@@ -5,6 +5,7 @@
 package GUI;
 
 
+import first_sprint_crud.entities.Coach;
 import first_sprint_crud.entities.Reclamation;
 import first_sprint_crud.entities.Reponse;
 
@@ -14,9 +15,12 @@ import first_sprint_crud.services.ReponseService;
 import java.io.IOException;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +40,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -65,6 +70,8 @@ public class MainReclamationController implements Initializable {
     private Button ret;
     private Stage stage;
     private Scene scene;
+    
+    private Timeline searchTimeline;
 
     /**
      * Initializes the controller class.
@@ -80,18 +87,28 @@ public class MainReclamationController implements Initializable {
             else
          prodvide.setText("Reclamation:");
         
-         show();
+         show("");
     } 
     
     
-     public void show()
+      public void show(String search)
     {
+         // Retrieve a list of coaches from the service
+        
+        List<Reclamation> reclamation ;
+        if(search.length() == 0)
+        reclamation= psrec.recuperer();
+        else
+        {
+            reclamation = psrec.recupererBySujet(search);
+        }
+        
         int column=0;
         int row=1;
         int x=0;
        
          try {
-        for(Reclamation pan : psrec.recuperer())
+        for(Reclamation pan : reclamation)
         {
             
            
@@ -132,12 +149,23 @@ public class MainReclamationController implements Initializable {
     }
 
     @FXML
-    private void searchtxtaction2(KeyEvent event) {
-    }
-
-    @FXML
     private void searchtxtaction(ActionEvent event) {
     }
+    
+      @FXML
+private void searchtxtaction2(KeyEvent event) {
+    if (searchTimeline != null) {
+        searchTimeline.stop();
+    }
+
+    searchTimeline = new Timeline(new KeyFrame(Duration.millis(300), actionEvent -> {
+        String searchText = searchtxt.getText();
+        show(searchText);
+    }));
+
+    searchTimeline.play();
+}
+    
 
     @FXML
     private void AddToCart(ActionEvent event) {
@@ -159,7 +187,7 @@ public class MainReclamationController implements Initializable {
             desc.setText("");
             
             
-            show();
+            show("");
             
         }
     }
