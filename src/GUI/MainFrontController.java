@@ -199,7 +199,7 @@ System.out.println("no file found");
 
     @FXML
     private void favp(MouseEvent event) {
-           URL fileUrl = JavafxPi.class.getResource("/GUI/ProgFront.fxml");
+           URL fileUrl = JavafxPi.class.getResource("/GUI/ProgrammeFav.fxml");
         try {
             if (fileUrl == null) {
                 throw new java.io.FileNotFoundException(" Fxml file not found ");

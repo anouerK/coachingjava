@@ -39,14 +39,14 @@ public class ProgrammeFavController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        show();
     }    
-    public void show(String search, int order) {
+    public void show() {
         // Retrieve a list of coaches from the service
 
         final List<Programme> programs;
 
-        programs = psm.recupererByCriterias(search, order);
+        programs = psm.recuperer();
         
 
         // Create a VBox to hold the rows
@@ -82,12 +82,27 @@ public class ProgrammeFavController implements Initializable {
                 Label prog_type = new Label("type : " + programs.get(i + j).getType());
                 Label prog_likes = new Label("likes : " + programs.get(i + j).getLikes());
                 
+                Button fav = new Button("Remove From favorit");
+                 fav.setStyle("-fx-background-color: #ea6368;");
 
+                    fav.setOnAction(e -> {
+
+                        psf.supprimer(psf.recupererFavoritebyProgid(programs.get(index).getId()));
+                        show();
+                        Notifications.create()
+                                .title("Success")
+                                .text("program has been removed from your favorites!")
+                                .show();
+                    
+                    // add your code to handle the like button click here
+                });
                 vboxD.getChildren().add(prog_name);
                 vboxD.getChildren().add(prog_type);
                 vboxD.getChildren().add(prog_likes);
                 vboxD.getChildren().add(hboxb);
+                 
                 hbox.getChildren().add(vboxD);
+                hbox.getChildren().add(fav);
 
             }
 
