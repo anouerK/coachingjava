@@ -104,19 +104,19 @@ public class ProgFrontController implements Initializable {
 
             // Create an HBox to hold the coaches
             HBox hbox = new HBox();
-            hbox.setSpacing(180);
+            hbox.setSpacing(30);
 
             // Create an ImageView with the static coach image and add it to the HBox
             for (int j = 0; j < 2 && (i + j) < programs.size(); j++) {
                 int index = i + j;
                 VBox vboxD = new VBox();
-                vboxD.setSpacing(50);
+                vboxD.setSpacing(25);
                 HBox hboxb = new HBox();
                 hboxb.setSpacing(20);
                 Image image = new Image(programs.get(i + j).getMedia());
                 ImageView imageView = new ImageView(image);
-                imageView.setFitHeight(250);
-                imageView.setFitWidth(250);
+                imageView.setFitHeight(110);
+                imageView.setFitWidth(110);
 
                 hbox.getChildren().add(imageView);
 

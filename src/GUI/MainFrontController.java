@@ -173,5 +173,74 @@ System.out.println("no file found");
 System.out.println("no file found");
     }
     }
+
+    @FXML
+    private void articlev(MouseEvent event) {
+        URL fileUrl = JavafxPi.class.getResource("/GUI/ArticleFront.fxml");
+        try {
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException(" Fxml file not found ");
+            }
+            else
+            {
+                   FXMLLoader loader = new FXMLLoader(fileUrl);
+            Pane pane = loader.load();
+            pane.setPrefSize(700, 700);
+            pane.setMaxHeight(700);
+            pane.setMaxWidth(700);
+                 
+            panev.getChildren().setAll(pane);
+            }
+        }
+        catch(Exception e ){
+System.out.println("no file found");
+    }
+    }
+
+    @FXML
+    private void favp(MouseEvent event) {
+           URL fileUrl = JavafxPi.class.getResource("/GUI/ProgFront.fxml");
+        try {
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException(" Fxml file not found ");
+            }
+            else
+            {
+                   FXMLLoader loader = new FXMLLoader(fileUrl);
+            Pane pane = loader.load();
+            pane.setPrefSize(700, 700);
+            pane.setMaxHeight(700);
+            pane.setMaxWidth(700);
+                 
+            panev.getChildren().setAll(pane);
+            }
+        }
+        catch(Exception e ){
+System.out.println("no file found");
+    }
+    }
+
+    @FXML
+    private void dashboardv(MouseEvent event) {
+           URL fileUrl = JavafxPi.class.getResource("/GUI/MainPage.fxml");
+        try {
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException(" Fxml file not found ");
+            }
+            else
+            {
+                   FXMLLoader loader = new FXMLLoader(fileUrl);
+            Pane pane = loader.load();
+            pane.setPrefSize(700, 700);
+            pane.setMaxHeight(700);
+            pane.setMaxWidth(700);
+                 
+            panev.getChildren().setAll(pane);
+            }
+        }
+        catch(Exception e ){
+System.out.println("no file found");
+    }
+    }
     
 }

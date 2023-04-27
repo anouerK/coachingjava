@@ -1,12 +1,23 @@
 package GUI;
 
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import first_sprint_crud.entities.Commentaire;
 import first_sprint_crud.services.CommentaireService;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -47,6 +58,8 @@ public class ArticleDetailsController implements Initializable {
     private Button retour;
     private Stage stage;
     private Scene scene;
+    @FXML
+    private ImageView qrid;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -95,8 +108,53 @@ public class ArticleDetailsController implements Initializable {
         });
 
         // Add each comment to the list view
-        for (Commentaire comment : comments) {
+         for (Commentaire comment : comments) {
+            try {
+      File myObj = new File("C:\\coachingjava\\src\\GUI\\bad_words.txt");
+      Scanner myReader = new Scanner(myObj);
+      while (myReader.hasNextLine()) {
+        String data = myReader.nextLine();
+      
+         if( comment.getContenu().indexOf(data)!= -1)
+            {
+               comment.setContenu( comment.getContenu().replace(data, "****"));
+            }
+      }
+      
+      myReader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
             listv.getItems().add(comment);
+        }
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        String Information = "Article Title "+ArticleFrontController.selectedarticle_.getTitre()+"\n"+" Content : "+ArticleFrontController.selectedarticle_.getSujet_art();
+        int width = 300;
+        int height = 300;
+        BufferedImage bufferedImage = null;
+         try{
+            BitMatrix byteMatrix = qrCodeWriter.encode(Information, BarcodeFormat.QR_CODE, width, height);
+            bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            bufferedImage.createGraphics();
+            
+            Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, width, height);
+            graphics.setColor(Color.BLACK);
+            
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (byteMatrix.get(i, j)) {
+                        graphics.fillRect(i, j, 1, 1);
+                    }
+                }
+            }
+            
+            
+            qrid.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
+            
+        } catch (WriterException ex) {
         }
     }
 
@@ -113,7 +171,8 @@ public class ArticleDetailsController implements Initializable {
               Commentaire c = new Commentaire(commetinput.getText(),ArticleFrontController.selectedarticle_);
 
             psc.ajouter(c);
-            listv.getItems().add(c);
+            //listv.getItems().add(c);
+            show();
             commetinput.setText("");
          }
     }

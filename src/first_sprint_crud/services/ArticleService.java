@@ -150,21 +150,14 @@ public class ArticleService implements IService<Article> {
     
     }
     
-    public List<Article> recupererBySujetTitre(String sujetF , String titreF) {
+    public List<Article> recupererBySujetTitre(String s) {
         List<Article> articles = new ArrayList<>();
         String sql = "SELECT * FROM article";
         
          try {
         
-    
-          if(sujetF!="" && titreF=="")
-         sql = "SELECT * FROM article where sujet_art LIKE '" + "%" +sujetF+ "%" + "'  ";
-          
-           if(sujetF=="" && titreF!="")
-         sql = "SELECT * FROM article  where titre LIKE '" + "%" +titreF+ "%" + "'  ";
-           
-             if(sujetF!="" && titreF!="")
-         sql = "SELECT * FROM article  where sujet_art LIKE '" + "%" +sujetF+ "%" + "' and titre like '"  + "%" +titreF+ "%" + "'  " ;
+      if(s.length()>=1)
+      sql = "SELECT * FROM article where sujet_art LIKE '" + "%" +s+ "%" + "'  or titre LIKE '" + "%" +s+ "%" + "'  ";
    
           Statement stmt = cnx.createStatement();
 
@@ -177,7 +170,7 @@ public class ArticleService implements IService<Article> {
             String sujet = rs.getString("sujet_art");
             String titre = rs.getString("titre");
             String image = rs.getString("image");
-          
+          image = MyDB.url_upload + image;
 
             Article article = new Article(id, sujet, titre,image);
             articles.add(article);

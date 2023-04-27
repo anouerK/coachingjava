@@ -3,17 +3,19 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ArticleFrontController">
    <children>
-      <ListView fx:id="listA" layoutX="63.0" layoutY="135.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="654.0" />
+      <ListView fx:id="listA" layoutX="63.0" layoutY="192.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="654.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="53.0" prefHeight="54.0" prefWidth="272.0" text="Listes Articles" textFill="#1d44c4">
          <font>
             <Font name="Calibri Bold" size="48.0" />
          </font>
       </Label>
       <Button fx:id="retour" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#ret" text="Retour" />
+      <TextField fx:id="searchb" layoutX="63.0" layoutY="144.0" onKeyTyped="#search" prefHeight="25.0" prefWidth="654.0" />
    </children>
 </AnchorPane>
