@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavafxPi.jar" size="1556484" download="eager" />
+    <jar href="JavafxPi.jar" size="1588301" download="eager" />
     <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
     <jar href="lib\activation.jar" size="124332" download="eager" />
     <jar href="lib\controlsfx-8.40.14.jar" size="1215643" download="eager" />
@@ -18,9 +18,6 @@
     <jar href="lib\zxing-1.7-javase.jar" size="22002" download="eager" />
     <jar href="lib\zxing-core-2.0.jar" size="432773" download="eager" />
   </resources>
-  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavafxPi" >
-    <param name="requiredFXVersion" value="8.0+"/>
-  </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="javafxpi.JavafxPi"  name="JavafxPi" />
   <update check="always"/>
 </jnlp>

@@ -25,8 +25,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -46,12 +49,32 @@ public class ArticleFrontController implements Initializable {
     private Button retour;
     private Stage stage;
     private Scene scene;
+    @FXML
+    private TextField searchb;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        show("");
+    }
+
+    @FXML
+    private void ret(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+
+    public void show(String s)
+            
+    {
+        
         listA.setCellFactory(param -> {
             final HBox hbox = new HBox();
             final ImageView imageview = new ImageView();
@@ -105,18 +128,25 @@ public class ArticleFrontController implements Initializable {
             return cell;
         });
 
-        ObservableList<Article> items = FXCollections.observableArrayList(psm.recuperer());
+        ObservableList<Article> items = null ;
+        if(s.length() == 0)
+        {
+             items=  FXCollections.observableArrayList(psm.recuperer());
+           
+            
+        }
+        else
+        {
+             items=  FXCollections.observableArrayList(psm.recupererBySujetTitre(s));
+        }
+        
         listA.setItems(items);
     }
 
     @FXML
-    private void ret(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+    private void search(KeyEvent event) {
+          
+       
     }
 
 }

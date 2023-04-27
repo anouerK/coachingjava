@@ -37,6 +37,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -68,6 +69,8 @@ public class MainArticleController implements Initializable {
     private TableView<Article> tabview;
     @FXML
     private Label imgurl;
+    @FXML
+    private TextField search;
 
     /**
      * Initializes the controller class.
@@ -78,10 +81,10 @@ public class MainArticleController implements Initializable {
         // TODO
          titreT.setCellFactory(TextFieldTableCell.forTableColumn());
           sujetT.setCellFactory(TextFieldTableCell.forTableColumn());
-        show();
+        show("");
     }    
 
-    public void show()
+    public void show(String s)
     {
        
           
@@ -111,7 +114,14 @@ imageT.setCellFactory(param -> {
        titreT.setCellValueFactory(new PropertyValueFactory<Article,String>("titre"));
        sujetT.setCellValueFactory(new PropertyValueFactory<Article,String>("sujet_art"));
         //tabB.setItems(list);
-        ObservableList<Article> items = FXCollections.observableArrayList(psm.recuperer());
+        ObservableList<Article> items;
+        if(search.getText().length() == 0)
+        items= FXCollections.observableArrayList(psm.recuperer());
+        else
+        {
+          items= FXCollections.observableArrayList(psm.recupererBySujetTitre(s));
+        }
+         
         tabview.setItems(items);
 
     }
@@ -165,7 +175,7 @@ imageT.setCellFactory(param -> {
             imgv.setImage(null);
             
            
-            show();
+            show("");
         }
     }
 
@@ -173,7 +183,7 @@ imageT.setCellFactory(param -> {
     private void onremove(ActionEvent event) {
         Article article = tabview.getSelectionModel().getSelectedItem();
        psm.supprimer(article.getId());
-      show();
+      show("");
     }
 
     @FXML
@@ -208,18 +218,28 @@ imageT.setCellFactory(param -> {
             e.printStackTrace();
         }
     }
-@FXML
+    @FXML
     private void onChangeTitre(TableColumn.CellEditEvent<Article, String> event) {
         Article article = event.getRowValue();
             article.setTitre(event.getNewValue());
             psm.modifier(article);
     }
-@FXML
+    @FXML
     private void onChangeSujet(TableColumn.CellEditEvent<Article, String> event) {
         Article article = event.getRowValue();
             article.setSujet_art(event.getNewValue());
             psm.modifier(article);
     }
+
+   
+
+    @FXML
+    private void onsearch(KeyEvent event) {
+         String searchText = search.getText();
+        show(searchText);
+    }
+
+   
 
     
 }

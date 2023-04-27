@@ -69,16 +69,16 @@ public class CoachFrontController implements Initializable {
     for (int i = 0; i < coaches.size(); i += 2) {
         // Create an HBox to hold the coaches
         HBox hbox = new HBox();
-        hbox.setSpacing(180);
+        hbox.setSpacing(90);
         
         // Create an ImageView with the static coach image and add it to the HBox
         for (int j = 0; j < 2 && (i + j) < coaches.size(); j++) {
             VBox vboxD = new VBox();
-             vboxD.setSpacing(50);
+             vboxD.setSpacing(25);
             Image image = new Image("/assets/coach_logo.png");
             ImageView imageView = new ImageView(image);
-            imageView.setFitHeight(250);
-            imageView.setFitWidth(250);
+            imageView.setFitHeight(110);
+            imageView.setFitWidth(110);
 
             hbox.getChildren().add(imageView);
 

@@ -34,5 +34,6 @@
       <TextField fx:id="titre" layoutX="117.0" layoutY="171.0" />
       <TextField fx:id="sujet" layoutX="117.0" layoutY="254.0" />
       <Label fx:id="imgurl" layoutX="5.0" layoutY="425.0" prefHeight="17.0" prefWidth="261.0" />
+      <TextField fx:id="search" layoutX="711.0" layoutY="63.0" onKeyTyped="#onsearch" prefHeight="25.0" prefWidth="210.0" />
    </children>
 </AnchorPane>
