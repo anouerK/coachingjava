@@ -42,6 +42,8 @@ public class MainFrontController implements Initializable {
     private Parent root;
     @FXML
     private ImageView rendez;
+    @FXML
+    private ImageView reclamation;
     
     
     

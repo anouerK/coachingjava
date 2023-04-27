@@ -39,7 +39,7 @@
                   <Insets />
                </HBox.margin>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="69.0" onMouseClicked="#reclamationv" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="reclamation" fitHeight="55.0" fitWidth="69.0" onMouseClicked="#reclamationv" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/contact_logo.png" />
                </image>
