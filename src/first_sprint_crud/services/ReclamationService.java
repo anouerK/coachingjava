@@ -145,15 +145,21 @@ try {
     return reclamations;
     }
     
-      public List<Reclamation> recupererBySujet(String search) {
+      public List<Reclamation> recupererBySujet(String search, int t) {
  List<Reclamation> reclamations = new ArrayList<>();
+        String sql1 = "SELECT * FROM reclamation where sujet LIKE '" + "%" +search+ "%" +  "'  ";
+
     try {
         
     
       
-         
-       String sql1 = "SELECT * FROM reclamation where sujet LIKE '" + "%" +search+ "%" +  "'  ";
-
+       if(t==1){
+           sql1 = "SELECT * FROM reclamation where sujet LIKE '" + "%" +search+ "%" +  "' order by date_rec ";
+       }
+       
+        if(t==2){
+            sql1 = "SELECT * FROM reclamation where sujet LIKE '" + "%" +search+ "%" +  "' order by date_rec desc ";
+       }
          Statement stmt = cnx.createStatement();
 
        
